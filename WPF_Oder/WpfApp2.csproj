@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="1.png" />
+    <None Remove="2.jpg" />
+    <None Remove="3.jpg" />
+    <None Remove="32officeicons-6_89731.png" />
+    <None Remove="3643750-draw-edit-pencil-08.png" />
+    <None Remove="3643750-draw-edit-pencil-stationary-write_113408.png" />
+    <None Remove="3643750-draw-edit-pencil8.png" />
+    <None Remove="search_icon_153438.png" />
+  </ItemGroup>
+
+</Project>
