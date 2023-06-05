@@ -21,15 +21,14 @@ namespace WpfApp2
 {
     public partial class MainWindow : Window
     {
-        private int _peopleCount = 1;
-        private int peopleCount
+        private int _personCount = 1;
+        private int personCount
         {
-            get => _peopleCount;
+            get => _personCount;
             set
             {
-                _peopleCount = value > 12 || value < 1 ? 1 : value;
-                peopleCountTextBox.Text = peopleCount.ToString();
-                peopleCountTextBox.SelectionStart = 1;
+                _personCount = value > 12 || value < 1 ? 1 : value;
+                personCountTextBox.Text = personCount.ToString();
             }
         }
         private readonly List<Order> orders;
@@ -46,7 +45,7 @@ namespace WpfApp2
             RadioButton? tmp = rButtons.Children.OfType<RadioButton>().FirstOrDefault(n => (bool)n.IsChecked);
             DateTime[]? dates = calendar.SelectedDates.ToArray();
             if (!fillCheck(tmp, dates)) return;
-            Order order = new(nameSurnameTextBox.Text, contactInfoTextBox.Text, peopleCount,
+            Order order = new(nameSurnameTextBox.Text, contactInfoTextBox.Text, personCount,
                 Enum.Parse<Order.NQuality>(tmp.Content.ToString()),
                 calendar.SelectedDates.ToArray());
             orders.Add(order);
@@ -55,16 +54,16 @@ namespace WpfApp2
 
         private void CancelButtonClick(object sender, RoutedEventArgs e)
         {
-            peopleCount = 1;
+            personCount = 1;
             nameSurnameTextBox.Text = string.Empty;
             contactInfoTextBox.Text = string.Empty;
-            peopleCountTextBox.Text = "1";
+            personCountTextBox.Text = "1";
             accept.IsChecked = false;
             foreach (var item in rButtons.Children.OfType<RadioButton>())
                 item.IsChecked = false;
         }
 
-        private void AddButtonClick(object sender, RoutedEventArgs e) => peopleCount++;
+        private void AddButtonClick(object sender, RoutedEventArgs e) => personCount++;
 
 
         private bool fillCheck(RadioButton? button, DateTime[]? dates)
@@ -73,16 +72,16 @@ namespace WpfApp2
             string message;
             if (string.IsNullOrEmpty(nameSurnameTextBox.Text)) message = "Enter name and surname";
             else if (string.IsNullOrEmpty(contactInfoTextBox.Text)) message = "Enter contact information";
-            else if (!int.TryParse(peopleCountTextBox.Text, out count) || count > 12 || count < 1) message = "Invalid peple count value";
+            else if (!int.TryParse(personCountTextBox.Text, out count) || count > 12 || count < 1) message = "Invalid person count value";
             else if (button == null) message = "Choose room quality";
             else if (dates?.Length == 0) message = "Choose date range";
             else
             {
-                peopleCount = count;
+                personCount = count;
                 return true;
             }
             MessageBox.Show(message, "Error");
-            peopleCount = count;
+            personCount = count;
             return false;
         }
        

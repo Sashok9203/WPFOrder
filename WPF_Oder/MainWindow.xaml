@@ -32,13 +32,13 @@
             <StackPanel>
                 <Label Target="{Binding ElementName = nameSurnameTextBox}" Content ="_Name and Surname:" HorizontalAlignment ="Left" FontSize="18"/>
                 <Label Target="{Binding ElementName = contactInfoTextBox}" Content ="_Contacts information:" HorizontalAlignment ="Left" FontSize="18"/>
-                <Label Target="{Binding ElementName = peopleCountTextBox}" Content ="_Persone count:"  HorizontalAlignment ="Left" FontSize="18"/>
+                <Label Target="{Binding ElementName = peopleCountTextBox}" Content ="_Person count:"  HorizontalAlignment ="Left" FontSize="18"/>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.ColumnSpan="2">
                 <TextBox Name="nameSurnameTextBox" Margin="5" HorizontalAlignment ="Left" FontSize="18" Width="250"/>
                 <TextBox Name="contactInfoTextBox" Margin="5" HorizontalAlignment ="Left" FontSize="18" Width="250" InputScope="Digits"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
-                    <TextBox  Name ="peopleCountTextBox" Margin="5" HorizontalAlignment ="Left" FontSize="18" Width="50" Text="1" InputScope="Digits"/>
+                    <TextBox  Name ="personCountTextBox" Margin="5" HorizontalAlignment ="Left" FontSize="18" Width="50" Text="1" InputScope="Digits"/>
                     <RepeatButton Content="+" Width="26" Height="26" VerticalContentAlignment="Center" FontWeight="Bold" Click="AddButtonClick" Delay="500" Interval="200"  />
                 </StackPanel>
             </StackPanel>
